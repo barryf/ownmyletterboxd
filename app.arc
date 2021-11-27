@@ -8,7 +8,7 @@ region eu-west-2
 get /
 
 @scheduled
-fetch rate(10 minutes)
+process rate(10 minutes)
 
 @tables
 users

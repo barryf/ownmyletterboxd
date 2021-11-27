@@ -1,7 +1,7 @@
 const test = require('tape')
 const fs = require('fs')
 const path = require('path')
-const parse = require('../src/scheduled/fetch/parse')
+const parse = require('../src/scheduled/process/parse')
 
 const xml = fs.readFileSync(path.join(__dirname, '/feed.xml'), 'utf8')
 

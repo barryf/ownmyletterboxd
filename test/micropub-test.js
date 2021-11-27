@@ -1,7 +1,7 @@
 const test = require('tape')
 const fs = require('fs')
 const path = require('path')
-const micropub = require('../src/scheduled/fetch/micropub')
+const micropub = require('../src/scheduled/process/micropub')
 
 const json = fs.readFileSync(path.join(__dirname, '/item.json'), 'utf8')
 const item = JSON.parse(json)
