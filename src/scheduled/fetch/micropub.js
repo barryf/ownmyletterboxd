@@ -61,6 +61,7 @@ function propertiesFromItem (item) {
       { html: item.description[0] }
     ]
   }
+  // console.log('properties', properties)
   return properties
 }
 
@@ -80,4 +81,7 @@ async function post (endpoint, token, item) {
   return response.ok
 }
 
-module.exports = { post }
+module.exports = {
+  post,
+  propertiesFromItem
+}
