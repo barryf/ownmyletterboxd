@@ -16,7 +16,7 @@ async function processUser (user) {
 }
 
 async function process () {
-  const users = data.getUsers()
+  const users = await data.getUsers()
   for (const user of users) {
     await processUser(user)
   }
