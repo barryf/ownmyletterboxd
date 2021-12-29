@@ -12,7 +12,7 @@ function propertiesFromItem (item) {
       new Date(item.pubDate[0]).toISOString()
     ],
     rating: [
-      parseInt(item['letterboxd:memberRating'][0])
+      item['letterboxd:memberRating'][0]
     ],
     content: [
       { html: item.description[0] }
