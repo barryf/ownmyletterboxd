@@ -1,12 +1,12 @@
 # Own My Letterboxd
 
-Polls your Letterboxd RSS feed and posts new film reviews to your Micropub endpoint using `h-review`.
+This is a service that polls your Letterboxd RSS feed and posts new film reviews to your Micropub endpoint using `h-review`.
 
-The interval is set at 10 minutes, although this can be changed in the `app.arc` file.
+It uses AWS via the [Architect framework](https://arc.codes). RSS feed fetches are scheduled via EventBridge and Lambda. Data is stored using DynamoDB.
+
+The fetch interval is set at **10 minutes**, although this can be changed in the `app.arc` manifest.
 
 ## Setup
-
-Deploy to AWS using the [Architect framework](https://arc.codes).
 
 ```sh
 npm i -g @architect/architect aws-sdk
@@ -15,7 +15,7 @@ arc deploy production
 
 ### Configure
 
-Create a record in the `users` table with your site's details via the DynamoDB console with the following values. You will first need to generate a token from your Micropub endpoint with `create` access for the `micropub_token` property.
+Create a record in the `users` table with your site's details via the DynamoDB console. You will first need to generate a token from your Micropub endpoint with `create` access for the `micropub_token` property.
 
 |property|value|example|
 |--------|-----|-------|
