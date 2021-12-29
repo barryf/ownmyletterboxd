@@ -1,7 +1,7 @@
 {
   "name": "ownmyletterboxd",
   "version": "0.1.0",
-  "description": "Polls your Letterboxd RSS feed and makes Micropub h-review posts to your endpoint with new reviews.",
+  "description": "Polls my Letterboxd RSS feed and makes Micropub h-review posts to your endpoint with new reviews.",
   "scripts": {
     "start": "ARC_TABLES_PORT=5555 arc sandbox",
     "test": "NODE_ENV=testing tape test/*-test.js"

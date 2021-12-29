@@ -1,4 +1,4 @@
-# ownyourletterboxd
+# Own My Letterboxd
 
 Polls your Letterboxd RSS feed and makes Micropub h-review posts to your endpoint with new reviews.
 
