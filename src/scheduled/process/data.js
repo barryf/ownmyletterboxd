@@ -5,7 +5,7 @@ async function updateUserLastGuid (url, guid) {
   const user = await data.users.get({ url })
   if (!user) return
   user.last_guid = guid
-  await data.users.update(user)
+  await data.users.put(user)
   console.log(`Updated ${url} last_guid with ${guid}.`)
 }
 
