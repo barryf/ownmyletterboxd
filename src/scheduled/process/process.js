@@ -3,25 +3,23 @@ const parse = require('./parse')
 const data = require('./data')
 const micropub = require('./micropub')
 
-async function process () {
-  // const users = data.getUsers()
-  // for (user of users) {
-  // }
-  const url = 'http://localhost:3333/'
-  const endpoint = 'http://localhost:3333/micropub'
-  const token = 'foo'
-  const letterboxdUser = 'barryf'
-
-  const feed = await fetch(letterboxdUser)
+async function processUser (user) {
+  const feed = await fetch(user.letterboxd_user)
   const item = await parse.getFirstItem(feed)
-  const lastGuid = await data.getUserLastGuid(url)
+  const lastGuid = await data.getUserLastGuid(user.url)
   const itemGuid = item.guid[0]._
-  // console.log('itemGuid', itemGuid)
-  if (itemGuid !== lastGuid) {
-    const ok = await micropub.post(endpoint, token, item)
-    if (ok) await data.updateUserLastGuid(url, itemGuid)
+
+  if (itemGuid === lastGuid) return
+  const ok = await micropub.post(user.micropub_endpoint, user.micropub_token, item)
+  if (!ok) return
+  await data.updateUserLastGuid(user.url, itemGuid)
+}
+
+async function process () {
+  const users = data.getUsers()
+  for (const user of users) {
+    await processUser(user)
   }
-  return 'ok'
 }
 
 module.exports = process
