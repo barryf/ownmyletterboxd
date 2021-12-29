@@ -1,10 +1,10 @@
 {
   "name": "ownmyletterboxd",
-  "version": "0.0.0",
-  "description": "A fresh new Architect project!",
+  "version": "0.1.0",
+  "description": "Polls your Letterboxd RSS feed and makes Micropub h-review posts to your endpoint with new reviews.",
   "scripts": {
-    "start": "npx sandbox",
-    "test": "NODE_ENV=testing PORT=3336 tape test/*-test.js"
+    "start": "ARC_TABLES_PORT=5555 arc sandbox",
+    "test": "NODE_ENV=testing tape test/*-test.js"
   },
   "devDependencies": {
     "@architect/architect": "^9.4.1",
