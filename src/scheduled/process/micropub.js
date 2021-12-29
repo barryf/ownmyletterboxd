@@ -26,7 +26,7 @@ async function post (endpoint, token, item) {
     type: ['h-review'],
     properties: propertiesFromItem(item)
   }
-  const response = await fetch(endpoint, {
+  await fetch(endpoint, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -34,9 +34,6 @@ async function post (endpoint, token, item) {
     },
     body: JSON.stringify(body)
   })
-  const text = await response.text()
-  console.log(`Response from Micropub endpoint ${endpoint}`, text)
-  return response.ok
 }
 
 module.exports = {

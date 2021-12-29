@@ -8,11 +8,10 @@ async function processUser (user) {
   const item = await parse.getFirstItem(feed)
   const lastGuid = await data.getUserLastGuid(user.url)
   const itemGuid = item.guid[0]._
-
-  if (itemGuid === lastGuid) return
-  const ok = await micropub.post(user.micropub_endpoint, user.micropub_token, item)
-  if (!ok) return
-  await data.updateUserLastGuid(user.url, itemGuid)
+  if (itemGuid !== lastGuid) {
+    await micropub.post(user.micropub_endpoint, user.micropub_token, item)
+    await data.updateUserLastGuid(user.url, itemGuid)
+  }
 }
 
 async function process () {
