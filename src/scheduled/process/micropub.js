@@ -1,48 +1,5 @@
 const fetch = require('node-fetch')
 
-/*
-{
-  "title": [
-    "No Time to Die, 2021 - ★★★★"
-  ],
-  "link": [
-    "https://letterboxd.com/barryf/film/no-time-to-die-2021/"
-  ],
-  "guid": [
-    {
-      "_": "letterboxd-watch-211332918",
-      "$": {
-        "isPermaLink": "false"
-      }
-    }
-  ],
-  "pubDate": [
-    "Tue, 23 Nov 2021 02:53:05 +1300"
-  ],
-  "letterboxd:watchedDate": [
-    "2021-11-21"
-  ],
-  "letterboxd:rewatch": [
-    "No"
-  ],
-  "letterboxd:filmTitle": [
-    "No Time to Die"
-  ],
-  "letterboxd:filmYear": [
-    "2021"
-  ],
-  "letterboxd:memberRating": [
-    "4.0"
-  ],
-  "description": [
-    " <p><img src=\"https://a.ltrbxd.com/resized/film-poster/3/0/5/9/6/4/305964-no-time-to-die-0-500-0-750-crop.jpg?k=a1e5dd9760\"/></p> <p>Watched on Sunday November 21, 2021.</p> "
-  ],
-  "dc:creator": [
-    "Barry Frost"
-  ]
-}
-*/
-
 function propertiesFromItem (item) {
   const properties = {
     summary: [
@@ -61,7 +18,6 @@ function propertiesFromItem (item) {
       { html: item.description[0] }
     ]
   }
-  // console.log('properties', properties)
   return properties
 }
 
@@ -78,6 +34,8 @@ async function post (endpoint, token, item) {
     },
     body: JSON.stringify(body)
   })
+  const text = await response.text()
+  console.log(`Response from Micropub endpoint ${endpoint}`, text)
   return response.ok
 }
 
