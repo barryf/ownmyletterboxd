@@ -4,7 +4,7 @@ This is a service that polls your Letterboxd RSS feed and posts new film reviews
 
 It uses AWS via the [Architect framework](https://arc.codes). RSS feed fetches are scheduled via EventBridge and Lambda. Data is stored using DynamoDB.
 
-The fetch interval is set at **10 minutes**, although this can be changed in the `app.arc` manifest.
+The fetch interval is set at **60 minutes**, although this can be changed in the `app.arc` manifest.
 
 ## Setup
 
