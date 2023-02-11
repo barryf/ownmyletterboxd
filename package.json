@@ -7,7 +7,7 @@
     "test": "NODE_ENV=testing tape test/*-test.js"
   },
   "devDependencies": {
-    "@architect/architect": "^9.4.1",
+    "@architect/architect": "^10.10.1",
     "tape": "^5.3.2"
   },
   "dependencies": {
