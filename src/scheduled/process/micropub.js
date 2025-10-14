@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 function propertiesFromItem (item) {
   const properties = {
     summary: [
